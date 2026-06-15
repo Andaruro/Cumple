@@ -1,307 +1,257 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños, Mi Amor!</title>
-    
-    <link rel="icon" href="https://i.imgur.com/K8N3s6a.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mi Osita 💜</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- Paleta de Colores --- */
-        :root {
-            --dark-purple: #3c1361;
-            --main-purple: #6a3093;
-            --soft-lavender: #e1bee7;
-            --cream-white: #faf3f3;
-            --accent-pink: #f48fb1;
-            --shadow-color: rgba(0, 0, 0, 0.4);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-        /* --- Estilos Generales --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #5e2b97, #9d4edd, #c77dff);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
 
-        body {
-            font-family: 'Comfortaa', cursive;
-            background: linear-gradient(135deg, var(--dark-purple), var(--main-purple));
-            color: var(--cream-white);
-            overflow-x: hidden;
-            position: relative; /* Necesario para el fondo de corazones */
-            cursor: url('https://i.imgur.com/So5iS2h.png'), auto;
-        }
+/* CORAZONES */
+.corazones {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+}
 
-        /* --- Fondo Animado de Corazones --- */
-        .hearts-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Detrás de todo el contenido */
-            overflow: hidden;
-        }
+.corazones span {
+    position: absolute;
+    font-size: 20px;
+    animation: flotar linear infinite;
+    opacity: 0.8;
+}
 
-        .heart {
-            position: absolute;
-            bottom: -50px;
-            font-size: 20px;
-            color: var(--accent-pink);
-            animation: float-up 10s infinite linear;
-            opacity: 0;
-        }
+@keyframes flotar {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
 
-        @keyframes float-up {
-            from {
-                transform: translateY(0);
-                opacity: 0.7;
-            }
-            to {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
-        }
-        /* Fin Fondo Animado */
+/* CONTENIDO */
+section, footer, button {
+    position: relative;
+    z-index: 1;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-            position: relative; /* Asegura que el contenido esté sobre el fondo */
-            z-index: 1;
-        }
+.hero {
+    padding: 60px 20px 30px 20px;
+}
 
-        header { margin-bottom: 60px; }
+.hero h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    animation: fadeDown 2s ease;
+}
 
-        header img.header-bears {
-            max-width: 250px;
-            margin-bottom: -30px;
-            filter: drop-shadow(0 5px 15px var(--shadow-color));
-            animation: float 4s ease-in-out infinite;
-        }
+.mensaje {
+    background: rgba(255,255,255,0.15);
+    margin: 40px auto;
+    padding: 30px;
+    width: 85%;
+    max-width: 750px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4.5rem;
-            color: white;
-            text-shadow: 0 0 20px var(--soft-lavender);
-        }
+.ositos h2,
+.galeria h2,
+.gif-section h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2em;
+}
 
-        /* --- Línea de Tiempo de Recuerdos --- */
-        .timeline {
-            position: relative;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
+.bears, .fotos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
 
-        .timeline::before {
-            content: ''; position: absolute; left: 50%; top: 0;
-            width: 4px; height: 100%; background: linear-gradient(to bottom, var(--soft-lavender), var(--accent-pink));
-            border-radius: 2px; transform: translateX(-50%);
-        }
+.bears img {
+    width: 220px;
+    height: auto;              /* Mantiene proporción */
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    object-fit: contain;       /* Evita deformaciones */
+}
 
-        .timeline-item {
-            padding: 20px 40px; position: relative; width: 50%;
-            opacity: 0; transform: translateY(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .timeline-item.visible { opacity: 1; transform: translateY(0); }
-        .timeline-item:nth-child(odd) { left: 0; }
-        .timeline-item:nth-child(even) { left: 50%; }
+/* Imagen central ligeramente destacada */
+.imagen-centro {
+    width: 240px;
+}
 
-        .timeline-item::after {
-            content: ''; position: absolute; width: 20px; height: 20px;
-            background: var(--cream-white); border: 4px solid var(--accent-pink);
-            border-radius: 50%; top: 30px; z-index: 1;
-        }
+/* Milk más grande pero sin deformarse */
+.milk-grande {
+    width: 260px;
+}
 
-        .timeline-item:nth-child(odd)::after { right: -12px; }
-        .timeline-item:nth-child(even)::after { left: -12px; }
+.bears img:hover,
+.fotos img:hover {
+    transform: scale(1.07);
+}
 
-        .timeline-content {
-            padding: 20px; background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px); border-radius: 15px;
-            box-shadow: 0 5px 20px var(--shadow-color);
-            transition: transform 0.3s ease;
-        }
-        
-        .timeline-content:hover { transform: translateY(-5px); }
-        .timeline-content img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
-        .timeline-content h3 { font-size: 1.2rem; color: var(--accent-pink); margin-bottom: 5px; }
-        .timeline-content p { font-size: 0.9rem; color: var(--soft-lavender); }
-        
-        /* --- Botón de Sorpresa y Sección de GIF --- */
-        .surprise-section { margin: 60px 0; }
-        
-        #surpriseBtn {
-            font-family: 'Comfortaa', cursive; font-size: 1.2rem; font-weight: 700;
-            padding: 15px 30px; border: none; border-radius: 50px;
-            background-color: var(--accent-pink); color: var(--dark-purple);
-            cursor: url('https://i.imgur.com/So5iS2h.png'), auto;
-            box-shadow: 0 4px 15px var(--shadow-color); transition: all 0.3s ease;
-        }
-        
-        #surpriseBtn:hover { transform: scale(1.05); box-shadow: 0 6px 20px var(--accent-pink); }
-        
-        .gif-section {
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            max-width: 500px;
-        }
-        
-        .gif-section h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--soft-lavender);
-            margin-bottom: 15px;
-        }
-        
-        .gif-section img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
+/* GIF */
+.gif-section {
+    margin-top: 60px;
+}
 
-        /* --- Sección de Mensaje --- */
-        .message-section {
-            background: rgba(0, 0, 0, 0.2); padding: 30px;
-            border-radius: 20px; text-align: left; margin-top: 40px;
-        }
+.gif-container {
+    max-width: 280px;
+    margin: 20px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 200, 255, 0.8);
+}
 
-        .message-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-        .message-header img { width: 60px; }
-        .message-header h2 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--accent-pink); }
-        .message-section p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; }
+/* BOTON */
+button {
+    background: white;
+    color: #7b2cbf;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: 0.3s;
+}
 
-        /* --- Animaciones --- */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+button:hover {
+    background: #e0aaff;
+    color: white;
+    transform: scale(1.05);
+}
 
-        /* --- Diseño Responsivo --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .timeline::before { left: 30px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; }
-            .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
-            .timeline-item::after { left: 18px; }
-        }
-    </style>
+.sorpresa {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.3em;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+footer {
+    margin: 60px 0 30px 0;
+    opacity: 0.8;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="hearts-bg"></div>
+<!-- CORAZONES -->
+<div class="corazones">
+    <span style="left:10%; animation-duration:6s;">💜</span>
+    <span style="left:25%; animation-duration:8s;">💜</span>
+    <span style="left:40%; animation-duration:7s;">💜</span>
+    <span style="left:60%; animation-duration:9s;">💜</span>
+    <span style="left:75%; animation-duration:6.5s;">💜</span>
+    <span style="left:90%; animation-duration:8.5s;">💜</span>
+</div>
 
-    <div class="container">
-        <header>
-            <img src="https://i.imgur.com/9iC6EtR.png" alt="Mocha y Milk" class="header-bears">
-            <h1>¡Feliz Cumpleaños!</h1>
-            <p style="font-size: 1.5rem; color: var(--soft-lavender);">Para mi osita favorita: [Nombre de tu Novia]</p>
-        </header>
+<section class="hero">
+    <h1>Feliz Cumpleaños, Mi Amor 💜</h1>
+    <p>Para la osita más hermosa del mundo 🐻✨</p>
+</section>
 
-        <main>
-            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; margin-bottom: 20px;">Nuestra Aventura Juntos</h2>
-            
-            <div class="timeline">
-                <!-- MEMORIA 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <img src="https://via.placeholder.com/400x300/e1bee7/3c1361?text=Tu+Foto+Aquí" alt="Recuerdo 1">
-                        <h3>El Día que Nos Conocimos</h3>
-                        <p>No sabía que ese día mi vida cambiaría para siempre. ¡El mejor día!</p>
-                    </div>
-                </div>
-                <!-- ... tus otras memorias aquí ... -->
-            </div>
+<section class="mensaje">
+    <p>
+        Hoy celebramos tu vida, tu ternura y esa sonrisa que ilumina mis días.  
+        Así como Milk y Mocha siempre están juntos,  
+        yo quiero acompañarte siempre.  
+        Gracias por hacer mi mundo más bonito. 💜
+    </p>
+</section>
 
-            <div class="surprise-section">
-                <button id="surpriseBtn">¡Haz Clic Para una Sorpresa!</button>
-            </div>
-            
-            <!-- ****** NUEVA SECCIÓN DE GIF (ACTUALIZADA) ****** -->
-            <div class="gif-section">
-                <h2>Nosotros, básicamente:</h2>
-                <!-- ¡AQUÍ ESTÁ EL NUEVO GIF QUE QUERÍAS! -->
-                <img src="https://media1.tenor.com/m/6y6j_tGTP0kAAAAC/milk-and-mocha-angry.gif" alt="Mocha enojado y Milk calmándolo">
-            </div>
-            
-            <section class="message-section">
-                <div class="message-header">
-                    <img src="https://i.imgur.com/YdF3nRA.png" alt="Osito con corazón">
-                    <h2>Un Mensaje Para Ti</h2>
-                </div>
-                <p>
-                    Mi amor, mi osita, mi todo. Hoy celebramos tu existencia, y no podría estar más agradecido por tenerte en mi vida. Eres la personita que le da color y sentido a mis días.
-                </p>
-                <p>
-                    Ver todo lo que hemos vivido juntos me llena el corazón. Cada recuerdo es un tesoro, y estoy emocionado por todos los que nos quedan por crear. Gracias por ser mi compañera, mi confidente y mi razón para sonreír.
-                </p>
-                <p>
-                    Que este nuevo año de vida te traiga toda la felicidad que repartes por el mundo. Te amo infinitamente.
-                    <br>
-                    <strong>Con todo mi amor, [Tu Nombre]</strong>
-                </p>
-            </section>
-        </main>
+<section class="ositos">
+    <h2>Mocha 🐻 & Milk 🐻</h2>
+    <div class="bears">
+
+        <!-- Imagen izquierda -->
+        <img 
+            src="Images/Black & White Cute Romantic Handwritten Valentine Love Letter (1).jpg" 
+            alt="Mocha">
+
+        <!-- Imagen central -->
+        <img 
+            class="imagen-centro"
+            src="Black & White Cute Romantic Handwritten Valentine Love Letter (2).jpg" 
+            alt="Milk & Mocha">
+
+        <!-- Imagen derecha (Milk más grande) -->
+        <img 
+            class="milk-grande"
+            src="images/milk.png" 
+            alt="Milk">
     </div>
+</section>
+<section class="galeria">
+    <h2>Nuestros Momentos 💕</h2>
+    <div class="fotos">
+        <img src="images/Black & White Cute Romantic Handwritten Valentine Love Letter (1).jpg" alt="Foto 1">
+        <img src="images/Black & White Cute Romantic Handwritten Valentine Love Letter (2).jpg" alt="Foto 2">
+        <img src="images/Black & White Cute Romantic Handwritten Valentine Love Letter.jpg" alt="Foto 3">
+    </div>
+</section>
 
-    <!-- Scripts para Confeti, Animaciones y Corazones de fondo -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Animaciones de scroll ---
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+<section class="gif-section">
+    <h2>Un detalle especial 💝</h2>
 
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                observer.observe(item);
-            });
+    <div class="gif-container">
+        <div class="tenor-gif-embed"
+            data-postid="16880909724428845080"
+            data-share-method="host"
+            data-aspect-ratio="1.00403">
+            <a href="https://tenor.com/es/view/milk-and-mocha-angry-bear-cute-love-gif-16880909724428845080">
+                Milk And Mocha GIF
+            </a>
+        </div>
+    </div>
+</section>
 
-            // --- Confeti ---
-            const surpriseBtn = document.getElementById('surpriseBtn');
-            surpriseBtn.addEventListener('click', () => {
-                const defaults = {
-                    spread: 360, ticks: 100, gravity: 0, decay: 0.94,
-                    startVelocity: 30, shapes: ['heart'],
-                    colors: ['#f48fb1', '#e1bee7', '#faf3f3', '#6a3093']
-                };
-                confetti({ ...defaults, particleCount: 50, scalar: 2 });
-                confetti({ ...defaults, particleCount: 25, scalar: 3 });
-                confetti({ ...defaults, particleCount: 10, scalar: 4 });
-            });
+<button onclick="mostrarSorpresa()">Haz clic aquí 💌</button>
+<div class="sorpresa" id="sorpresa">
+    Eres mi lugar favorito en el mundo 💜🐻
+</div>
 
-            // --- Fondo de Corazones Flotantes ---
-            const heartsContainer = document.querySelector('.hearts-bg');
-            const createHeart = () => {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerText = '♥';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 5 + 5 + 's';
-                heart.style.fontSize = Math.random() * 10 + 10 + 'px';
-                heartsContainer.appendChild(heart);
+<footer>
+    Hecho con todo mi amor 💕
+</footer>
 
-                setTimeout(() => {
-                    heart.remove();
-                }, 10000);
-            };
+<script>
+function mostrarSorpresa() {
+    document.getElementById("sorpresa").style.display = "block";
+}
+</script>
 
-            setInterval(createHeart, 300);
-        });
-    </script>
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 </body>
 </html>
