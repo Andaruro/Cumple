@@ -149,10 +149,65 @@ footer {
     margin: 60px 0 30px 0;
     opacity: 0.8;
 }
+
+/* CARTA INICIAL */
+
+.carta-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #4b0082, #7b2cbf);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    cursor: pointer;
+    transition: opacity 0.8s ease;
+}
+
+.sobre {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    background: #e0aaff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #c77dff;
+    transform-origin: top;
+    transition: transform 0.8s ease;
+}
+
+.carta-texto {
+    margin-top: 25px;
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: white;
+}
+
+.abrir .sobre::before {
+    transform: rotateX(180deg);
+}
 </style>
 </head>
 
 <body>
+
+<div class="carta-container" id="carta" onclick="abrirCarta()">
+    <div class="sobre"></div>
+    <div class="carta-texto">Toca la carta 💌</div>
+</div>
+
+<div id="contenido" style="display:none;">
 
 <div class="corazones">
     <span style="left:10%; animation-duration:6s;">💜</span>
@@ -170,27 +225,29 @@ footer {
 
 <section class="mensaje">
     <p>
-       celebramos tu vida, 8766 vueltas al mundo desde que naciste, desde que una estrella bajó a este mundo a brillar como ninguna, a ser una compañera de aventuras, de logros, de celebraciones, pero por sobre todo a ser una mujer que se merece todo lo bueno en este mundo, una mujer que lucha por lo que quiere hasta conseguirlo, una mujer que no se rinde por nada, por ser una gran hija, hermana, sobrina, nieta y lo más especial  para mí, mi novia,  ser mi compañera en estos tres años en los cuales he aprendido demasiado sobre ciencia, biolgía y médicina, todo gracias a ti, a mi osita.<br><br>
-       Así como Milk y Mocha siempre están juntos, yo quiero acompañarte siempre por el resto de nuestras vidas, acompañarte en cada aventura nueva que se nos cruce, cada locura que hagamos, cada momento lo quiero junto a tí.
-       Gracias por hacer mi mundo más bonito y por hacer que cada día sea mejor que el anterior, que pese a que no siempre coincidimos con nuestros pensamientos, eso nunca ha impedido que las cosas se solucinen de una u otra manera, que cada momento junto a ti sea una nueva anécdota para contar, que cada historia nueva que escribamos juntos sea algo para recordar toda la vida, siempre te estaré agradecido por todo lo que has traido a mi vida y por todas las aventuras que hemos vivido hasta el día de hoy. 💜
+       celebramos tu vida, 8766 vueltas al mundo desde que naciste, desde que una estrella bajó a este mundo a brillar como ninguna, a ser una compañera de aventuras, de logros, de celebraciones, pero por sobre todo a ser una mujer que se merece todo lo bueno en este mundo, una mujer que lucha por lo que quiere hasta conseguirlo, una mujer que no se rinde por nada, por ser una gran hija, hermana, sobrina, nieta y lo más especial para mí, mi novia, ser mi compañera en estos tres años en los cuales he aprendido demasiado sobre ciencia, biología y medicina, todo gracias a ti, a mi osita.<br><br>
+
+       Así como Milk y Mocha siempre están juntos, yo quiero acompañarte siempre por el resto de nuestras vidas, acompañarte en cada aventura nueva que se nos cruce, cada locura que hagamos, cada momento lo quiero junto a ti.<br><br>
+
+       Gracias por hacer mi mundo más bonito y por hacer que cada día sea mejor que el anterior, que pese a que no siempre coincidimos con nuestros pensamientos, eso nunca ha impedido que las cosas se solucionen de una u otra manera, que cada momento junto a ti sea una nueva anécdota para contar, que cada historia nueva que escribamos juntos sea algo para recordar toda la vida, siempre te estaré agradecido por todo lo que has traído a mi vida y por todas las aventuras que hemos vivido hasta el día de hoy. 💜
     </p>
 </section>
 
 <section class="ositos">
     <h2>Mocha 🐻 & Milk 🐻</h2>
     <div class="bears">
-        <img src=" Black & White Cute Romantic Handwritten Valentine Love Letter (1).jpg" alt="Mocha">
-        <img class="imagen-centro" src=" Black & White Cute Romantic Handwritten Valentine Love Letter (2).jpg" alt="Milk & Mocha">
-        <img class="milk-grande" src=" Black & White Cute Romantic Handwritten Valentine Love Letter.jpg" alt="Milk">
+        <img src="Black & White Cute Romantic Handwritten Valentine Love Letter (1).jpg" alt="Mocha">
+        <img class="imagen-centro" src="Black & White Cute Romantic Handwritten Valentine Love Letter (2).jpg" alt="Milk & Mocha">
+        <img class="milk-grande" src="Black & White Cute Romantic Handwritten Valentine Love Letter.jpg" alt="Milk">
     </div>
 </section>
 
 <section class="galeria">
     <h2>Nuestros Momentos 💕</h2>
     <div class="fotos">
-        <img src=" Black & White Cute Romantic Handwritten Valentine Love Letter (1).jpg" alt="Foto 1">
-        <img src=" Black & White Cute Romantic Handwritten Valentine Love Letter (2).jpg" alt="Foto 2">
-        <img src=" Black & White Cute Romantic Handwritten Valentine Love Letter.jpg" alt="Foto 3">
+        <img src="Black & White Cute Romantic Handwritten Valentine Love Letter (1).jpg" alt="Foto 1">
+        <img src="Black & White Cute Romantic Handwritten Valentine Love Letter (2).jpg" alt="Foto 2">
+        <img src="Black & White Cute Romantic Handwritten Valentine Love Letter.jpg" alt="Foto 3">
     </div>
 </section>
 
@@ -209,12 +266,14 @@ footer {
 
 <div class="sorpresa" id="sorpresa">
     Eres mi lugar favorito en el mundo 💜🐻 <br><br>
-    Te doy gracias por compartir tantos momentos junto a mí, por enseñarme a ser mejor persona, por acopañarme en mis malos momentos, por estar siempre para mí cuando nadie más lo ha estado y por ser siempre mi luz al final del día, mi lugar seguro en los momentos de completa oscuridad y mi guía en los momentos cuando más perdido  me siento y por sobre todo por eso una gran mujer y una novia perfecta conmigom, alguien en quien quiero confiar el resto de mis días y noches, mis alegrías y mis logros, espero poder seguir siendo un consejero y compañero para ti el resto de nuestra vida. Te amo mucho mi niña hermosa.
+    Te doy gracias por compartir tantos momentos junto a mí, por enseñarme a ser mejor persona, por acompañarme en mis malos momentos, por estar siempre para mí cuando nadie más lo ha estado y por ser siempre mi luz al final del día, mi lugar seguro en los momentos de completa oscuridad y mi guía en los momentos cuando más perdido me siento y por sobre todo por ser una gran mujer y una novia perfecta conmigo, alguien en quien quiero confiar el resto de mis días y noches, mis alegrías y mis logros. Espero poder seguir siendo un consejero y compañero para ti el resto de nuestra vida. Te amo mucho mi niña hermosa.
 </div>
 
 <footer>
     POR MÁS Y MÁS AÑOS JUNTO A MI NIÑA 💕
 </footer>
+
+</div>
 
 <script>
 function mostrarSorpresa() {
@@ -223,6 +282,23 @@ function mostrarSorpresa() {
 </script>
 
 <script async src="https://tenor.com/embed.js"></script>
+
+<script>
+function abrirCarta() {
+    const carta = document.getElementById("carta");
+    carta.classList.add("abrir");
+
+    setTimeout(() => {
+        carta.style.opacity = "0";
+
+        setTimeout(() => {
+            carta.style.display = "none";
+            document.getElementById("contenido").style.display = "block";
+        }, 800);
+
+    }, 800);
+}
+</script>
 
 </body>
 </html>
